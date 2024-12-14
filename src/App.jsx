@@ -61,25 +61,27 @@ function App() {
   return (
     <>
       <Navbar />
-      <div className="container mx-auto my-5 bg-violet-400 rounded-xl p-5 min-[80vh] w-1/2">
+      <div className="md:container mx:3 md:mx-auto my-5 bg-violet-400 rounded-xl p-5 min-[80vh] md:w-[35%]">
         <h1 className="font-bold text-center text-xl">
           iTask Manage your todos at a place
         </h1>
         <div className="addTodo flex flex-col gap-4">
           <h2 className="text-lg font-bold">Add a todo</h2>
-          <input
-            type="text"
-            value={todo}
-            onChange={(e) => setTodo(e.target.value)}
-            className="w-full rounded-md p-2"
-          />
-          <button
-            disabled={todo.length <= 1}
-            onClick={handleAdd}
-            className="bg-violet-800 disabled:bg-violet-600 hover:bg-violet-950 py-1 p-3 text-sm font-bold text-white rounded-md"
-          >
-            Save
-          </button>
+          <div className="flex">
+            <input
+              type="text"
+              value={todo}
+              onChange={(e) => setTodo(e.target.value)}
+              className="w-[80%] rounded-full p-2"
+            />
+            <button
+              disabled={todo.length <= 1}
+              onClick={handleAdd}
+              className="bg-violet-800 disabled:bg-violet-600 hover:bg-violet-950 py-1 p-3 text-sm font-bold text-white rounded-md mx-2"
+            >
+              Save
+            </button>
+          </div>
         </div>
         <input
           type="checkbox"
@@ -91,7 +93,7 @@ function App() {
         <h1 className="text-lg font-bold">Your todos</h1>
         <div className="todos">
           {todos.length == 0 ? (
-            <div className="todo flex justify-between w-1/2 bg-violet-200 gap-1 rounded-lg m-2 p-4">
+            <div className="todo flex justify-between bg-violet-200 gap-1 rounded-lg m-2 p-4">
               <div className={`text `}>
                 <h2>No todos....</h2>
               </div>
@@ -102,7 +104,7 @@ function App() {
                 (showFinished || !item.isCompleted) && (
                   <div
                     key={item.id}
-                    className="todo flex justify-between w-1/3 bg-violet-200 gap-1 rounded-lg m-2 p-4"
+                    className="todo flex justify-between bg-violet-200 gap-1 rounded-lg m-2 p-4"
                   >
                     <div className="flex gap-5">
                       <input
